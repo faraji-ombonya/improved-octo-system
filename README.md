@@ -1,2 +1,3 @@
-# improved-octo-system
+# Facial Recognition System
+
 Facial recognition with DeepFace
