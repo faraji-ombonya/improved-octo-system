@@ -18,8 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
 
+    path('users/', include("myuser.urls")),
     path('amazon-rekognition/', include("myamazonrekognition.urls")),
     path('deepface/', include("mydeepface.urls")),
     path('kairos/', include("mykairos.urls"))
