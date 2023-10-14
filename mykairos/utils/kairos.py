@@ -41,15 +41,13 @@ class Kairos():
                 logger.error(f"Error: {errors}")
                 return False
 
-            logger.info(f"User {subject_id} enrolled successfully")
+            print(f"User {subject_id} enrolled successfully")
             return response.json()
         
         except requests.exceptions.RequestException as e:
-            logger.error(e)
             return False
         
         except Exception as e:
-            logger.error(e)
             return False
             
 
@@ -60,6 +58,8 @@ class Kairos():
         :return: The subject_id of the subject in the recognized image.
         """
         url = self.base_url + "/recognize"
+
+        print(f"URL: {url}")
 
         payload = {
             "gallery_name": self.gallery_name,
@@ -78,7 +78,9 @@ class Kairos():
 
             images = data.get('images')
             if not images:
-                logger.error("No images in response")
+                print("No images in response")
+                print(response.json())
+                print(response.status_code)
                 return False
 
             max_confidence = 0.0
